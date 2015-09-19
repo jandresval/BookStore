@@ -1,0 +1,24 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+
+<ol class="round" id="names" start="@ViewBag.Names.FirstItemOnPage">
+	@foreach(var i in ViewBag.Names){
+		<li>
+           <div>
+           <a href="@Url.Action("Details", "Store",
+               new { id = i.Id , page = ViewBag.page})">
+           
+           <img alt="@i.Title" src="@i.PathImage" />
+           
+           <p><label>Title : </label> @i.Title<br/>
+               <label>Author : </label> @i.Author<br />
+               <label>Price :</label> $ @i.Price
+           </p>
+           </a>
+           </div>
+       </li>
+	}
+</ol>
+
+@Html.PagedListPager((IPagedList)ViewBag.Names, page => Url.Action("Index", new { page }), PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing( new AjaxOptions(){  HttpMethod = "GET", UpdateTargetId = "unobtrusive", OnComplete = "PagedOnComplete" }))

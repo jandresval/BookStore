@@ -1,0 +1,78 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewBag.Title = "DetailsBook";
+}
+
+<h2>DetailsBook</h2>
+
+<fieldset>
+    <legend>Book</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Author)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Author)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ISBN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ISBN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Publisher)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Publisher)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PublishYear)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PublishYear)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Summary)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Summary)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PathImage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PathImage)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+       $ @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "EditBook", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "ListBook")
+</p>

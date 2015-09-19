@@ -1,0 +1,102 @@
+﻿@model BookStore.Models.Book
+
+@{
+    ViewBag.Title = "Edit Book";
+}
+
+<h2>EditBook</h2>
+
+@using (Html.BeginForm(new { id = Model.Id }))
+{
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Author)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Author)
+            @Html.ValidationMessageFor(model => model.Author)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ISBN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ISBN)
+            @Html.ValidationMessageFor(model => model.ISBN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Publisher)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Publisher)
+            @Html.ValidationMessageFor(model => model.Publisher)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PublishYear)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PublishYear)
+            @Html.ValidationMessageFor(model => model.PublishYear)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Summary)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Summary)
+            @Html.ValidationMessageFor(model => model.Summary)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PathImage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PathImage)
+            @Html.ValidationMessageFor(model => model.PathImage)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Quantity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Quantity)
+            @Html.ValidationMessageFor(model => model.Quantity)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ListBook")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

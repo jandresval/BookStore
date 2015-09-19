@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BookStore.ViewModels.OrderDetailViewModel>
+@{
+    ViewBag.Title = "Orders";
+}
+
+<style>
+    /* suppress link for printing */
+    @@media only print {
+        a {
+            display: none;
+        }
+
+        #login {
+            display: none;
+        }
+    }
+</style>
+<a href="#" onclick="window.print(); return false;">Print</a>
+
+<h2>Orders</h2>
+
+<table>
+    
+
+@foreach (var item in Model)
+{
+    <tr>
+        <th>
+            Order
+        </th>
+        <th>
+            Detail Order
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @item.OrderId
+        </td>
+        <td style="padding:0px;padding-bottom:0px;">
+            <table style="padding:0px;padding-bottom:0px;margin-top:0px;">
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Unit Price
+                    </th>
+                </tr>
+            
+            @foreach (var itemDetail in item.orderDetail)
+            {
+                <tr>
+                    <td>
+                       @itemDetail.Book.Title
+                    </td>
+                    <td>
+                        @itemDetail.Quantity
+                    </td>
+                    <td>
+                       $ @itemDetail.UnitPrice
+                    </td>
+                </tr>
+            }
+            </table>
+         </td>
+        </tr>
+    <tr>
+        <td style="font-weight:bold;">
+            Total:
+        </td>
+        <td style="text-align:right">
+           $ @item.TotalOrder
+        </td>
+    </tr>
+}
+
+</table>
